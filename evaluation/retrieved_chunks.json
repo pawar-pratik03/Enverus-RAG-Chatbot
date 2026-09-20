@@ -1,0 +1,677 @@
+{
+  "Q5": {
+    "question": "How much time and cost does Agent-as-a-Judge save compared with three human experts?",
+    "retrieved_chunks": [
+      {
+        "score": 0.6418085932731628,
+        "faiss_score": 0.4795214831829071,
+        "keyword_score": 0.75,
+        "chunk_id": 15,
+        "page": 3,
+        "text": "In addition, considering the evaluation cost, Agent-as-a-Judge saves 97.72% of the time and 97.64% of the\ncost compared to involving three human experts.\nIn summary, the principal contributions of this work are:\n• We release the DevAI dataset, which consists of 55 comprehensive AI development tasks with accompanying\ntags, individual hierarchical requirements, and individual preferences.\n• We benchmark three top open-source code generation agentic frameworks in DevAI, providing a more\ncomprehensive analysis than previous evaluations of them.\n• We introduce the general Agent-as-a-Judge concept, allowing agentic systems a fair and rich evaluation\nwithout the traditional costs associated with human involvement.\n• We demonstrate that an Agent-as-a-Judge outperforms an LLM-as-a-Judge and perform"
+      },
+      {
+        "score": 0.5929889917373657,
+        "faiss_score": 0.4512224793434143,
+        "keyword_score": 0.6875,
+        "chunk_id": 42,
+        "page": 8,
+        "text": "o errors (around 5% compared to consensus evaluation,\nas shown in Figure 5). The second approach involves\nassembling a larger panel of experts (more is better when\ntheir accuracy exceeds 50% (Grofman et al., 1983)), with\nover 5 people recommended by Hastie and Kameda (2005);\nLarrick and Soll (2006), and relying on a majority vote.\nHowever, due to the high cost of engaging more experts\nand the fact that this is not always feasible in practice,\nwe argue for the former.\n4\nAgent-as-a-Judge: Evaluating Agents with Agents\nHuman evaluation, while somewhat reliable, is time-consuming and requires substantial expertise. To address\nthis, we propose the Agent-as-a-Judge framework. If such an agentic system could evaluate like a human, it\nwould reduce the need for human involvement and eliminate the t"
+      },
+      {
+        "score": 0.5823903322219849,
+        "faiss_score": 0.5184758305549622,
+        "keyword_score": 0.625,
+        "chunk_id": 52,
+        "page": 10,
+        "text": "ent Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 requirements. It is defined\nas the percentage of requirement evaluations that\nare the same as the Human-as-a-Judge consensus\nevaluation. Compared to LLM-as-a-Judge, Agent-\nas-a-Judge consistently achieves a higher Alignment\nRate, closely matching human judgments.\nFor\nexample, when evaluating OpenHands, Agent-as-a-\nJudge reaches 92.07% and 90.44%, surpassing LLM-\nas-a-Judge’s 70.76% and 60.38% in both gray-box\nand black-box settings. This shows that Agent-as-a-\nJudge produces more accurate and human-aligned\nevaluations, especially in complex scenarios.\nPR Curves\nJudging developer agents is a class-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift"
+      },
+      {
+        "score": 0.5819336175918579,
+        "faiss_score": 0.4235840439796448,
+        "keyword_score": 0.6875,
+        "chunk_id": 56,
+        "page": 11,
+        "text": "to the requirements. However, adding retrieve does not provide a significant benefit in this case. In contrast,\nas shown in Table 3, the judgment of MetaGPT and GPT-Pilot indicates that retrieve is useful, as the\ntrajectory provides additional valuable information.\n4.4\nCost Analysis\nThe Human-as-a-Judge took the three evaluators a self-reported total of 86.5 hours. With a 15 USD minimum\nwage (assuming this would buy a subject expert in AI), a full evaluation under DevAI would cost around\n1297.50 USD. In comparison, Agent-as-a-Judge cost only 30.58 USD in API calls and took only 118.43\nminutes—2.29% of the cost and 2.36% of the time of Human-as-a-Judge. LLM-as-a-Judge was faster at 10.99\nminutes, but due to the absence of intelligent context selection by the Agent-as-a-Judge’s modules, it s"
+      },
+      {
+        "score": 0.5036774396896362,
+        "faiss_score": 0.4154435992240906,
+        "keyword_score": 0.5625,
+        "chunk_id": 32,
+        "page": 6,
+        "text": "aluations\nusing Human-as-a-Judge (section 3), LLM-as-a-Judge, and Agent-as-a-Judge (section 4).\n3\nHuman-as-a-Judge: Manual Evaluation on DevAI\nTo determine the pragmatic validity of DevAI and to accurately estimate the actual code-generating abilities\nof current state-of-the-art agentic systems, in this section, we run and then manually evaluate the application\nof three AI developer baselines to DevAI. In Section 4, we show how this evaluation can be automated.\nTable 2 Human-as-a-Judge for AI Developers. (I) and (D) represent independent performance versus performance\nconsidering task dependencies.\nindicates multiple experts evolved, and\nmeans the evaluations use white-box\ntesting (allowing access to the generated workspace, human-collected trajectories, and open-source codebases). The\nres"
+      }
+    ]
+  },
+  "Q6": {
+    "question": "What are the time and cost results for Human-as-a-Judge, Agent-as-a-Judge, and LLM-as-a-Judge?",
+    "retrieved_chunks": [
+      {
+        "score": 0.7629119941166469,
+        "faiss_score": 0.6215656995773315,
+        "keyword_score": 0.8571428571428571,
+        "chunk_id": 9,
+        "page": 2,
+        "text": "Writing codes\nExecute and get images\nInteract\nIt starts to run\nIt can’t browse the web\nStuck in an strange loop\nCodes are unreliable\nAgent A\nAgent B\nEnvironment\nWorkspace\nWorkspace\nsrc\nvisualize.py\nAct\nAct\nWorkspace\nWorkspace\nsrc\nvisualize.py\nresults\nhidden.jpg\nAfter step-by-step checks, it‘s clear Agent B is better and\nsatisfy two requirements of the query. But comparing these\nagents or evaluate them took too much time. As a developer,\nthis would be a bottleneck due to the heavy manual effort.\nFigure 1 We introduce the Agent-as-a-Judge framework wherein agentic systems are used to evaluate agentic systems.\nWe compare this to LLM-as-a-Judge, which uses LLMs to evaluate LLMs and for which Agent-as-a-Judge is a natural\nevolution, and Human-as-a-Judge, where skilled human labourers manually e"
+      },
+      {
+        "score": 0.754781494821821,
+        "faiss_score": 0.7083823084831238,
+        "keyword_score": 0.7857142857142857,
+        "chunk_id": 50,
+        "page": 10,
+        "text": "proved detrimental, as any errors in previous judgments could lead to a chain of errors, negatively affecting\ncurrent decisions. Besides, the current workspaces generated by developer agents, having only hundreds of\nlines of code, cannot fully benefit from the search module. The details of these findings are explained in\nAppendix K. Note that a perfect Agent-as-a-Judge is not the focus of this proof of concept, and thus, we leave\nthe utilization of advanced agentic optimization methods for Agent-as-a-Judge, such as automated prompt\noptimization and workflow design (Zhuge et al., 2024; Hu et al., 2024), for future work.\n4.2\nJudging Agent-as-a-Judge and LLM-as-a-Judge\nJudge Shift\nJudge Shift measures deviation from the Human-as-a-Judge consensus results, with lower values\nindicating a closer"
+      },
+      {
+        "score": 0.7457404749734061,
+        "faiss_score": 0.7929226160049438,
+        "keyword_score": 0.7142857142857143,
+        "chunk_id": 51,
+        "page": 10,
+        "text": "easures deviation from the Human-as-a-Judge consensus results, with lower values\nindicating a closer alignment. As shown in table 3, Agent-as-a-Judge consistently outperforms LLM-as-a-Judge\nacross tasks, particularly those with task dependencies. For example, in Requirement (I), Agent-as-a-Judge\nshows a Judge Shift as low as 0.27%, while LLM-as-a-Judge reaches 31.24% for OpenHands. This underscores\nAgent-as-a-Judge’s stability and suitability for meeting task requirements. Furthermore, in the gray-box\nsetting, both Agent-as-a-Judge and LLM-as-a-Judge show even better results than their performance in the\nblack-box setting.\nFigure 7 PR Curves comparing judge Methods.\nAlignment Rate\nThe Alignment Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 r"
+      },
+      {
+        "score": 0.742137040410723,
+        "faiss_score": 0.7839140295982361,
+        "keyword_score": 0.7142857142857143,
+        "chunk_id": 102,
+        "page": 18,
+        "text": "-a-Judge Implementation\nDescription: We design and implement the Agent-as-a-Judge proof-of-concept to evaluate code\ngeneration on the DevAI dataset. This system incorporates modules such as graph, search, read,\nand ask, providing multi-dimensional evaluation metrics.\n■Step 7: Comparing AI Judge Systems (Experiment Level 3)\nDescription: In the third level of experiments, we compare three judgment systems: Agent-as-\na-Judge, LLM-as-a-Judge, and Human-as-a-Judge, all applied to the same DevAI tasks. Our\nresults show that Agent-as-a-Judge performs comparably to human evaluators and surpasses\nLLM-as-a-Judge in more complex reasoning and evaluation tasks.\nFuture Directions\n■Direction 1: Intermediate Feedback for Agentic Self-Improvement\nDescription: Agent-as-a-Judge offers intermediate feedback,"
+      },
+      {
+        "score": 0.7330273526055473,
+        "faiss_score": 0.7611398100852966,
+        "keyword_score": 0.7142857142857143,
+        "chunk_id": 52,
+        "page": 10,
+        "text": "ent Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 requirements. It is defined\nas the percentage of requirement evaluations that\nare the same as the Human-as-a-Judge consensus\nevaluation. Compared to LLM-as-a-Judge, Agent-\nas-a-Judge consistently achieves a higher Alignment\nRate, closely matching human judgments.\nFor\nexample, when evaluating OpenHands, Agent-as-a-\nJudge reaches 92.07% and 90.44%, surpassing LLM-\nas-a-Judge’s 70.76% and 60.38% in both gray-box\nand black-box settings. This shows that Agent-as-a-\nJudge produces more accurate and human-aligned\nevaluations, especially in complex scenarios.\nPR Curves\nJudging developer agents is a class-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift"
+      }
+    ]
+  },
+  "Q7": {
+    "question": "Which three agentic systems are evaluated in the paper?",
+    "retrieved_chunks": [
+      {
+        "score": 0.6461837450663249,
+        "faiss_score": 0.4487926959991455,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 3,
+        "page": 1,
+        "text": "ation methods and the available benchmarks for agentic systems are struggling to keep\nup with these rapid advances, dramatically slowing true progress.\nWe believe that the current issue with evaluating agentic systems stems from the lack of feedback during the\nintermediate task-solving stages for these nontraditional systems. Agentic systems think more like humans,\noften act step-by-step (Wooldridge, 1999) and often host very human-like symbolic communications internally\nto solve problems (Zhuge et al., 2023). And thus agentic systems should be evaluated like a human, with\nrich evaluative feedback which looks at the full thought and action trajectory; evaluating an agentic system\nin the traditional way is like evaluating a student using multiple-choice testing—a comparatively unreliable\nes"
+      },
+      {
+        "score": 0.5984139959017436,
+        "faiss_score": 0.32936832308769226,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 15,
+        "page": 3,
+        "text": "In addition, considering the evaluation cost, Agent-as-a-Judge saves 97.72% of the time and 97.64% of the\ncost compared to involving three human experts.\nIn summary, the principal contributions of this work are:\n• We release the DevAI dataset, which consists of 55 comprehensive AI development tasks with accompanying\ntags, individual hierarchical requirements, and individual preferences.\n• We benchmark three top open-source code generation agentic frameworks in DevAI, providing a more\ncomprehensive analysis than previous evaluations of them.\n• We introduce the general Agent-as-a-Judge concept, allowing agentic systems a fair and rich evaluation\nwithout the traditional costs associated with human involvement.\n• We demonstrate that an Agent-as-a-Judge outperforms an LLM-as-a-Judge and perform"
+      },
+      {
+        "score": 0.5968555728594462,
+        "faiss_score": 0.32547226548194885,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 18,
+        "page": 3,
+        "text": "et al., 2024). A benchmark that can evaluate the entire\ndevelopment process—ideally in a way that can help understand the degree to which current AI methods can\nreduce human labour—is missing.\nTopic\nWe chose automated AI development as our main topic. While AI and ML tasks are often more\ncomplex, they follow clear, standard procedures. For example, data processing typically comes first in an\nAI pipeline, and performance reporting goes at the end. We believe this topological nature can help better\nmonitor the development process and provide useful signals to the agentic systems.\nGoals\nAn ideal benchmark should address critical issues in automated development by focusing on three key\nfactors. First, it should reflect practical software scenarios, where tasks are often too complex for a singl"
+      },
+      {
+        "score": 0.5553160667419433,
+        "faiss_score": 0.3882901668548584,
+        "keyword_score": 0.6666666666666666,
+        "chunk_id": 144,
+        "page": 30,
+        "text": "H\nHuman Evaluation Procedure\nWe recruited three AI experts from the authors to perform human evaluation on the output of agentic code\ngeneration systems. There we present the evaluation details.\nFirst round\nFor the first round of evaluations, our three evaluators reported spending 16.5, 19.5, and 22.0\nhours, respectively. To capture the bias that a human evaluator will have, the instructions given to our\nexperts were minimal, with them only receiving a scorecard to complete for each agentic system and each task.\nResults that all evaluators agree on are considered trustworthy. The assumption here is that it is unlikely\nthat all three evaluators make a mistake or have an effective bias in the same judgment. The self-reported\npost-hoc evaluation criteria are shown in Figure 12.\nSecond round\nI"
+      },
+      {
+        "score": 0.49647342761357627,
+        "faiss_score": 0.4078502357006073,
+        "keyword_score": 0.5555555555555556,
+        "chunk_id": 28,
+        "page": 5,
+        "text": "s detailed in Appendix I). We capture the outputs\ngenerated during the automated development process, including code, files, and other artifacts. Additionally,\nwe record key decisions and actions made by the agentic systems through some custom instrumentation code,\nresulting in a development trajectory for each of the agentic systems.\nAnalysis\nThe basic statistics are shown in Table 1. MetaGPT is the most cost-efficient (1.19 USD), while\nOpenHands is the most expensive (6.38 USD). In terms of development time, OpenHands completes tasks\n5"
+      }
+    ]
+  },
+  "Q8": {
+    "question": "What are the average cost and average time of OpenHands?",
+    "retrieved_chunks": [
+      {
+        "score": 0.6631687800089519,
+        "faiss_score": 0.4912552833557129,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 29,
+        "page": 6,
+        "text": "Table 1 Preliminary Statistics of AI Developers. We compare three leading open-source code agents using metrics\nsuch as average cost, average time, and the average number of generated files.\nMetric\nMetaGPT (Hong et al., 2024b)\nGPT-Pilot (Pythagora.io, 2023) OpenHands (Wang et al., 2024d)\nBasic Statistics\nVersion\nData Interpreter (Hong et al., 2024a)\n0.2.13\nCodeAct v1.9 (Wang et al., 2024c)\n(1) Average Cost\n$1.19\n$3.92\n$6.38\n(2) Average Time\n775.29s\n1622.38s\n362.41s\n(3) Average Input Tokens\n152863\n606707\n1252482\n(4) Average Output Tokens\n28546\n59707\n8457\n(5) Average Saved Code Files\n0.42\n3.84\n2.53\n(6) Average Saved Code Lines\n11.15\n273.33\n96.56\n(7) Average Saved Files\n4.42\n5.91\n3.60\nin an average of 362.41s, while GPT-Pilot takes the longest at 1622.38s. On average, a full evaluation on\nDev"
+      },
+      {
+        "score": 0.6079501310984294,
+        "faiss_score": 0.35320866107940674,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 28,
+        "page": 5,
+        "text": "s detailed in Appendix I). We capture the outputs\ngenerated during the automated development process, including code, files, and other artifacts. Additionally,\nwe record key decisions and actions made by the agentic systems through some custom instrumentation code,\nresulting in a development trajectory for each of the agentic systems.\nAnalysis\nThe basic statistics are shown in Table 1. MetaGPT is the most cost-efficient (1.19 USD), while\nOpenHands is the most expensive (6.38 USD). In terms of development time, OpenHands completes tasks\n5"
+      },
+      {
+        "score": 0.5652068376541137,
+        "faiss_score": 0.4130170941352844,
+        "keyword_score": 0.6666666666666666,
+        "chunk_id": 160,
+        "page": 35,
+        "text": "ding\nmetrics\nsuch as mAP and\ninference\ntime, and save\nthe\nevaluation\nresults to `results/metrics/ model_performance .txt `. The\nsystem\nshould\nproperly\nmanage the launch and\ntermination of the\nStreamlit\napplication to prevent\nunnecessary\nresource\nusage .\\n\\nThis is\na task that\nrequires\nyou to write, execute, and save\nsource\ncode. You\nhave a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime.\nThe\nquality of your\nsolution\nwill be judged\nbased on what you left in\nthe\nworking\nfolder by the time 30 minutes\nexpire. Additionally , the\nhardware\nyou are\nrunning on is unknown, and the\npresence of a GPU is\nnot\nguaranteed .\\n\\nKeep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining .\\n\",\n\"agent\": {\n\"thought\": \"Let"
+      },
+      {
+        "score": 0.5358732461929321,
+        "faiss_score": 0.3396831154823303,
+        "keyword_score": 0.6666666666666666,
+        "chunk_id": 159,
+        "page": 35,
+        "text": "J.2\nA Sample of Trajectory\nThis is sample trajectories (we select 4 steps of it) in OpenHands (Wang et al., 2024d). All steps are recorded\nto enable replay of the trajectory.\n{\n\"step\": 0,\n\"user_message\": \"Help me develop an object\ndetection\nsystem\nusing the YOLOv\n3 model and the COCO\ndataset. Download\nthe\ndataset\nand\npreprocess\nthe\nimages by resizing\nand\nnormalization in `src/data_loader.py `. Implement\nthe YOLOv3 model and use Non -Maximum\nSuppression (NMS) to refine the\nresults in `src/model.py `. Save the\ndetected\nobjects to `results/\nfigures/`, and create an interactive\nStreamlit\nweb page in `src/app.py `\nto display\nthe\ndetection\nresults. Finally, evaluate\nthe model 's\nperformance, including\nmetrics\nsuch as mAP and\ninference\ntime, and save\nthe\nevaluation\nresults to `results/metrics/ mo"
+      },
+      {
+        "score": 0.5342312097549438,
+        "faiss_score": 0.3355780243873596,
+        "keyword_score": 0.6666666666666666,
+        "chunk_id": 15,
+        "page": 3,
+        "text": "In addition, considering the evaluation cost, Agent-as-a-Judge saves 97.72% of the time and 97.64% of the\ncost compared to involving three human experts.\nIn summary, the principal contributions of this work are:\n• We release the DevAI dataset, which consists of 55 comprehensive AI development tasks with accompanying\ntags, individual hierarchical requirements, and individual preferences.\n• We benchmark three top open-source code generation agentic frameworks in DevAI, providing a more\ncomprehensive analysis than previous evaluations of them.\n• We introduce the general Agent-as-a-Judge concept, allowing agentic systems a fair and rich evaluation\nwithout the traditional costs associated with human involvement.\n• We demonstrate that an Agent-as-a-Judge outperforms an LLM-as-a-Judge and perform"
+      }
+    ]
+  },
+  "Q9": {
+    "question": "Which system has the lowest average cost and which has the highest average cost?",
+    "retrieved_chunks": [
+      {
+        "score": 0.40561465422312415,
+        "faiss_score": 0.3473699688911438,
+        "keyword_score": 0.4444444444444444,
+        "chunk_id": 29,
+        "page": 6,
+        "text": "Table 1 Preliminary Statistics of AI Developers. We compare three leading open-source code agents using metrics\nsuch as average cost, average time, and the average number of generated files.\nMetric\nMetaGPT (Hong et al., 2024b)\nGPT-Pilot (Pythagora.io, 2023) OpenHands (Wang et al., 2024d)\nBasic Statistics\nVersion\nData Interpreter (Hong et al., 2024a)\n0.2.13\nCodeAct v1.9 (Wang et al., 2024c)\n(1) Average Cost\n$1.19\n$3.92\n$6.38\n(2) Average Time\n775.29s\n1622.38s\n362.41s\n(3) Average Input Tokens\n152863\n606707\n1252482\n(4) Average Output Tokens\n28546\n59707\n8457\n(5) Average Saved Code Files\n0.42\n3.84\n2.53\n(6) Average Saved Code Lines\n11.15\n273.33\n96.56\n(7) Average Saved Files\n4.42\n5.91\n3.60\nin an average of 362.41s, while GPT-Pilot takes the longest at 1622.38s. On average, a full evaluation on\nDev"
+      },
+      {
+        "score": 0.4004558483759562,
+        "faiss_score": 0.3344729542732239,
+        "keyword_score": 0.4444444444444444,
+        "chunk_id": 120,
+        "page": 23,
+        "text": "E\nThe Procedures of Creating DevAI Dataset\nE.1\nManually draft user queries\nGiven the execution cost of the developer agents, we collect small-scale AI tasks to ensure the practical\napplicability of our benchmark. Since these tasks are small-scale and well studied, which are easy to overfit\nin terms of task performance metrics, unlike previous benchmarks (e.g., (Huang et al., 2024)), we do not\nevaluate task performance as the development performance measure. Instead, we prioritize the step-by-step\ntask-solving ability, which is essential for real-world development. Our quires are specifically designed to\nrequire the development agents to understand user intentions, solve the task in multiple steps, and adapt\nto unexpected step outcomes. This approach also makes our benchmark user-friendly,"
+      },
+      {
+        "score": 0.38056562344233197,
+        "faiss_score": 0.2847473919391632,
+        "keyword_score": 0.4444444444444444,
+        "chunk_id": 15,
+        "page": 3,
+        "text": "In addition, considering the evaluation cost, Agent-as-a-Judge saves 97.72% of the time and 97.64% of the\ncost compared to involving three human experts.\nIn summary, the principal contributions of this work are:\n• We release the DevAI dataset, which consists of 55 comprehensive AI development tasks with accompanying\ntags, individual hierarchical requirements, and individual preferences.\n• We benchmark three top open-source code generation agentic frameworks in DevAI, providing a more\ncomprehensive analysis than previous evaluations of them.\n• We introduce the general Agent-as-a-Judge concept, allowing agentic systems a fair and rich evaluation\nwithout the traditional costs associated with human involvement.\n• We demonstrate that an Agent-as-a-Judge outperforms an LLM-as-a-Judge and perform"
+      },
+      {
+        "score": 0.3371450901031494,
+        "faiss_score": 0.34286272525787354,
+        "keyword_score": 0.3333333333333333,
+        "chunk_id": 157,
+        "page": 34,
+        "text": "\"model\": {\n\"type\": \"string\",\n\"description\": \"The name of the LLM model\nused.\"\n},\n\"cost\": {\n\"type\": \"number\",\n\"description\": \"The cost of the LLM\ninference, in USD.\"\n},\n\" llm_inference_time \": {\n\"type\": \"number\",\n\"description\": \"The time\ntaken by the LLM to generate\nthe output\ntokens\n, in seconds.\"\n},\n\" step_execution_time \": {\n\"type\": \"number\",\n\"description\": \"The time\ntaken to make an entire\nstep\nincluding\nLLM\ninference\nand\nenvironment\nexecution, in seconds.\"\n}\n},\n\"required\": [\n\"input_tokens\",\n\"output_tokens\",\n\"model\",\n\"cost\",\n\" llm_inference_time \",\n\" step_execution_time \"\n]\n},\n\" accumulated_usage \": {\n\"type\": \"object\",\n\"properties\": {\n\" accumulated_cost \": {\n\"type\": \"number\",\n\"description\": \"The total\ncost of the\ntrajectory up to this step, in\nUSD.\"\n},\n\" accumulated_time \": {\n\"type\": \"n"
+      },
+      {
+        "score": 0.33264663219451907,
+        "faiss_score": 0.3316165804862976,
+        "keyword_score": 0.3333333333333333,
+        "chunk_id": 48,
+        "page": 9,
+        "text": "he ask module determines whether a given requirement is satisfied. (7) The memory module stores\nhistorical judgment information, allowing the agent to build on past evaluations. Finally, (8) the planning\nmodule plans the following actions, allowing the agent to strategize and sequence tasks based on the current\nstate and the project goals.\nOur initial design of the Agent-as-a-Judge, including all its components, is shown in Figure 6, and the\noperational process of the Agent-as-a-Judge is illustrated in Figure 9.\nAfter conducting comprehensive ablation studies, we found that the modular combination of (1), (2), (3),\n(5), and (6) achieved the highest performance (see Appendix K). A sample of the dynamic evidence collected\nby the Agent-as-a-Judge is shown in Appendix M. We hypothesize this is"
+      }
+    ]
+  },
+  "Q10": {
+    "question": "What is the Requirements Met (Independent) percentage for GPT-Pilot under Human-as-a-Judge?",
+    "retrieved_chunks": [
+      {
+        "score": 0.6398980402946471,
+        "faiss_score": 0.49974510073661804,
+        "keyword_score": 0.7333333333333333,
+        "chunk_id": 45,
+        "page": 9,
+        "text": "Table 3 AI Judges and Their Shift/Alignment with Human-as-a-Judge. We compare the results of LLM-as-a-Judge\nand Agent-as-a-Judge with Human-as-a-Judge. (I) represents performance on independent tasks, while (D) represents\nperformance considering task dependencies. Note:\ngray-box settings use carefully manually collected trajectory\ndata (which is nearly inaccessible in practical situations, see Appendix J). In contrast,\nblack-box setting doesn’t\nneed to access to such data. The red scores represent the absolute judge shift compared with Human-as-a-Judge (e.g.,\n2.74%).\nMetric\nMetaGPT (Hong et al., 2024b) GPT-Pilot (Pythagora.io, 2023) OpenHands (Wang et al., 2024d)\nLLM-as-a-Judge\n(a) Requirements Met (I)\n19.39% (2.74%)\n12.56% (32.24%)\n11.47% (31.42%)\n(b) Requirements Met (D)\n1.63% (4.92%)\n4."
+      },
+      {
+        "score": 0.5795466041564942,
+        "faiss_score": 0.5488665103912354,
+        "keyword_score": 0.6,
+        "chunk_id": 52,
+        "page": 10,
+        "text": "ent Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 requirements. It is defined\nas the percentage of requirement evaluations that\nare the same as the Human-as-a-Judge consensus\nevaluation. Compared to LLM-as-a-Judge, Agent-\nas-a-Judge consistently achieves a higher Alignment\nRate, closely matching human judgments.\nFor\nexample, when evaluating OpenHands, Agent-as-a-\nJudge reaches 92.07% and 90.44%, surpassing LLM-\nas-a-Judge’s 70.76% and 60.38% in both gray-box\nand black-box settings. This shows that Agent-as-a-\nJudge produces more accurate and human-aligned\nevaluations, especially in complex scenarios.\nPR Curves\nJudging developer agents is a class-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift"
+      },
+      {
+        "score": 0.5749902844429016,
+        "faiss_score": 0.43747571110725403,
+        "keyword_score": 0.6666666666666666,
+        "chunk_id": 56,
+        "page": 11,
+        "text": "to the requirements. However, adding retrieve does not provide a significant benefit in this case. In contrast,\nas shown in Table 3, the judgment of MetaGPT and GPT-Pilot indicates that retrieve is useful, as the\ntrajectory provides additional valuable information.\n4.4\nCost Analysis\nThe Human-as-a-Judge took the three evaluators a self-reported total of 86.5 hours. With a 15 USD minimum\nwage (assuming this would buy a subject expert in AI), a full evaluation under DevAI would cost around\n1297.50 USD. In comparison, Agent-as-a-Judge cost only 30.58 USD in API calls and took only 118.43\nminutes—2.29% of the cost and 2.36% of the time of Human-as-a-Judge. LLM-as-a-Judge was faster at 10.99\nminutes, but due to the absence of intelligent context selection by the Agent-as-a-Judge’s modules, it s"
+      },
+      {
+        "score": 0.5202137804031373,
+        "faiss_score": 0.400534451007843,
+        "keyword_score": 0.6,
+        "chunk_id": 13,
+        "page": 2,
+        "text": ", 2023), and OpenHands (Wang et al.,\n2024d). We evaluate their performance using human judges (a painstaking process), LLM-as-a-Judge (Zheng\net al., 2024), and our Agent-as-a-Judge framework.\nThrough human evaluation, we found that GPT-Pilot and OpenHands were each able to satisfy about 29%\nof the task requirements in DevAI, but only one full task—showing that DevAI presents a good level of\nchallenge to current systems. When comparing our human judges with our automatic Agent-as-a-Judge\nframework, we found that Agent-as-a-Judge aligns more closely with the consensus of our human judges (90%)\nas compared to LLM-as-a-Judge (70%) in all cases tested. In addition, we find that it aligns more closely\nwith this ensemble than the individual human evaluators do, suggesting that—not only is it suit"
+      },
+      {
+        "score": 0.5096665215492249,
+        "faiss_score": 0.47416630387306213,
+        "keyword_score": 0.5333333333333333,
+        "chunk_id": 101,
+        "page": 18,
+        "text": "select three popular open-source developer\nagents: MetaGPT, GPT-Pilot, and OpenHands. These agents are evaluated on the DevAI tasks\nto establish performance baselines.\n■Step 4: Conducting Human-as-a-Judge Evaluation\nDescription: We conduct a Human-as-a-Judge experiment, where three human experts assess\nthe performance of the developer agents on the same DevAI tasks.\n■Step 5: Human-as-a-Judge Analysis (Experiment Level 2)\nDescription: In the second level of experiments, we statistically analyze the results of Human-as-\na-Judge evaluations, focusing on the costs of human labor and potential biases, highlighting the\nchallenges of relying on human evaluation for complex tasks.\n■Step 6: Agent-as-a-Judge Implementation\nDescription: We design and implement the Agent-as-a-Judge proof-of-concept t"
+      }
+    ]
+  },
+  "Q11": {
+    "question": "What is the Task Solve Rate for MetaGPT?",
+    "retrieved_chunks": [
+      {
+        "score": 0.5122995734214782,
+        "faiss_score": 0.3432489335536957,
+        "keyword_score": 0.625,
+        "chunk_id": 160,
+        "page": 35,
+        "text": "ding\nmetrics\nsuch as mAP and\ninference\ntime, and save\nthe\nevaluation\nresults to `results/metrics/ model_performance .txt `. The\nsystem\nshould\nproperly\nmanage the launch and\ntermination of the\nStreamlit\napplication to prevent\nunnecessary\nresource\nusage .\\n\\nThis is\na task that\nrequires\nyou to write, execute, and save\nsource\ncode. You\nhave a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime.\nThe\nquality of your\nsolution\nwill be judged\nbased on what you left in\nthe\nworking\nfolder by the time 30 minutes\nexpire. Additionally , the\nhardware\nyou are\nrunning on is unknown, and the\npresence of a GPU is\nnot\nguaranteed .\\n\\nKeep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining .\\n\",\n\"agent\": {\n\"thought\": \"Let"
+      },
+      {
+        "score": 0.5069455862045288,
+        "faiss_score": 0.329863965511322,
+        "keyword_score": 0.625,
+        "chunk_id": 152,
+        "page": 32,
+        "text": "I\nSuggest Constraints\nBelow is a sample of constraints in JSON format that describes task-specific guidelines:\n{\n\"generic\": \"This is a task that\nrequires\nyou to write, execute, and save\nsource\ncode. You have a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime. The\nquality of your\nsolution\nwill be judged\nbased on what you left in the\nworking\nfolder by the time 30 minutes\nexpire. Additionally, the\nhardware\nyou\nare\nrunning on is unknown, and the\npresence of a GPU is not\nguaranteed.\",\n\" is_training_needed \": \"Keep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining.\",\n\" is_kaggle_api_needed \": \"You can use the Kaggle API\ncredentials\nstored in `\nkaggle.json ` in your\ncurrent\nworking\ndirectory.\"\n}\nTo addres"
+      },
+      {
+        "score": 0.49914088249206545,
+        "faiss_score": 0.3103522062301636,
+        "keyword_score": 0.625,
+        "chunk_id": 120,
+        "page": 23,
+        "text": "E\nThe Procedures of Creating DevAI Dataset\nE.1\nManually draft user queries\nGiven the execution cost of the developer agents, we collect small-scale AI tasks to ensure the practical\napplicability of our benchmark. Since these tasks are small-scale and well studied, which are easy to overfit\nin terms of task performance metrics, unlike previous benchmarks (e.g., (Huang et al., 2024)), we do not\nevaluate task performance as the development performance measure. Instead, we prioritize the step-by-step\ntask-solving ability, which is essential for real-world development. Our quires are specifically designed to\nrequire the development agents to understand user intentions, solve the task in multiple steps, and adapt\nto unexpected step outcomes. This approach also makes our benchmark user-friendly,"
+      },
+      {
+        "score": 0.4474419474601745,
+        "faiss_score": 0.3686048686504364,
+        "keyword_score": 0.5,
+        "chunk_id": 191,
+        "page": 43,
+        "text": "L.4\nPrompt for Ask Module (for requirement check)\ndef\nget_ask_prompt (criteria: str, evidence: str) -> str:\nreturn f\"\"\"\nProvided\nbelow is relevant\ninformation\nabout the\nproject:\n{evidence}\nKindly\nperform an evaluation of the\nfollowing\ncriteria:\n{criteria}\nAs per the\nguidelines, respond\nwith\neither <SATISFIED > or <UNSATISFIED >,\nfollowed by a concise\njustification\nthat\nreferences\nspecific\nelements\nfrom\nthe\nproject\ninformation, such as code\nsnippets, data\nsamples, or output\nresults.\n\"\"\"\nL.5\nPrompt for Locate Module\ndef\nget_locate_prompt (criteria: str, evidence: str) -> str:\nreturn f\"\"\"\nProvided\nbelow is the\nstructure of the\nworkspace:\n{ workspace_info }\nThis is the\ncriteria\nrelated to the task:\n{criteria}\nFollow the format in the\nexample\nbelow and return\nonly the file\npaths\nthat\nmatch the"
+      },
+      {
+        "score": 0.43997578620910643,
+        "faiss_score": 0.3499394655227661,
+        "keyword_score": 0.5,
+        "chunk_id": 126,
+        "page": 24,
+        "text": "common sense to those explicitly stated. Although this helps to organize preferences, it is worth noting that\nsuch classifications can be subjective and may not fully capture the importance of each preference in practical\napplications. By structuring the requirements and preferences this way, we aim to enhance the evaluation\nprocess, though flexibility and context awareness remain crucial for truly robust assessments.\nE.6\nAuxiliary Information\nSome of the tasks require the download of a Kaggle data set, where a Kaggle credential is needed. Our\nconstraint I requires an “is kaggle api needed” tag to determine whether the credential is needed to be\nincluded in the extended query. We further mark each task with some tags describing the AI sub-fields\nrelated to the task, including computer visi"
+      }
+    ]
+  },
+  "Q12": {
+    "question": "What is the black-box alignment rate of Agent-as-a-Judge and LLM-as-a-Judge for OpenHands?",
+    "retrieved_chunks": [
+      {
+        "score": 0.8611420869827271,
+        "faiss_score": 0.7466052174568176,
+        "keyword_score": 0.9375,
+        "chunk_id": 52,
+        "page": 10,
+        "text": "ent Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 requirements. It is defined\nas the percentage of requirement evaluations that\nare the same as the Human-as-a-Judge consensus\nevaluation. Compared to LLM-as-a-Judge, Agent-\nas-a-Judge consistently achieves a higher Alignment\nRate, closely matching human judgments.\nFor\nexample, when evaluating OpenHands, Agent-as-a-\nJudge reaches 92.07% and 90.44%, surpassing LLM-\nas-a-Judge’s 70.76% and 60.38% in both gray-box\nand black-box settings. This shows that Agent-as-a-\nJudge produces more accurate and human-aligned\nevaluations, especially in complex scenarios.\nPR Curves\nJudging developer agents is a class-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift"
+      },
+      {
+        "score": 0.8458350658416749,
+        "faiss_score": 0.708337664604187,
+        "keyword_score": 0.9375,
+        "chunk_id": 53,
+        "page": 10,
+        "text": "ss-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift\nand alignment rate can be misleading. For example,\nsince MetaGPT rarely meets requirements, LLM-as-a-Judge easily identifies most cases as negative (achieving\n84.15% in the black-box setting). PR Curves offer a clearer performance measure by balancing precision and\nrecall. Agent-as-a-Judge even outperforms any single human evaluator on OpenHands and aligns closest with\nmajority voting. This shows that, in some cases, Agent-as-a-Judge can nearly replace human evaluators.\n4.3\nAblations For Agent-as-a-Judge\nWe conduct ablations to evaluate the impact of adding different components on Agent-as-a-Judge’s performance.\nThe components analyzed include ask, graph, read, locate, and retrieve. The com"
+      },
+      {
+        "score": 0.7956324338912963,
+        "faiss_score": 0.770331084728241,
+        "keyword_score": 0.8125,
+        "chunk_id": 51,
+        "page": 10,
+        "text": "easures deviation from the Human-as-a-Judge consensus results, with lower values\nindicating a closer alignment. As shown in table 3, Agent-as-a-Judge consistently outperforms LLM-as-a-Judge\nacross tasks, particularly those with task dependencies. For example, in Requirement (I), Agent-as-a-Judge\nshows a Judge Shift as low as 0.27%, while LLM-as-a-Judge reaches 31.24% for OpenHands. This underscores\nAgent-as-a-Judge’s stability and suitability for meeting task requirements. Furthermore, in the gray-box\nsetting, both Agent-as-a-Judge and LLM-as-a-Judge show even better results than their performance in the\nblack-box setting.\nFigure 7 PR Curves comparing judge Methods.\nAlignment Rate\nThe Alignment Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 r"
+      },
+      {
+        "score": 0.7308205604553223,
+        "faiss_score": 0.6083014011383057,
+        "keyword_score": 0.8125,
+        "chunk_id": 45,
+        "page": 9,
+        "text": "Table 3 AI Judges and Their Shift/Alignment with Human-as-a-Judge. We compare the results of LLM-as-a-Judge\nand Agent-as-a-Judge with Human-as-a-Judge. (I) represents performance on independent tasks, while (D) represents\nperformance considering task dependencies. Note:\ngray-box settings use carefully manually collected trajectory\ndata (which is nearly inaccessible in practical situations, see Appendix J). In contrast,\nblack-box setting doesn’t\nneed to access to such data. The red scores represent the absolute judge shift compared with Human-as-a-Judge (e.g.,\n2.74%).\nMetric\nMetaGPT (Hong et al., 2024b) GPT-Pilot (Pythagora.io, 2023) OpenHands (Wang et al., 2024d)\nLLM-as-a-Judge\n(a) Requirements Met (I)\n19.39% (2.74%)\n12.56% (32.24%)\n11.47% (31.42%)\n(b) Requirements Met (D)\n1.63% (4.92%)\n4."
+      },
+      {
+        "score": 0.6583508491516114,
+        "faiss_score": 0.6146271228790283,
+        "keyword_score": 0.6875,
+        "chunk_id": 175,
+        "page": 39,
+        "text": "K\nAblations of Agent-as-a-Judge\nK.1\nComponent Abalations\nTable 5 Component Ablation Studies for Agent-as-a-Judge. We analyze the impact of sequentially adding various\ncomponents (ask, graph, read, locate, retrieve, planning, memory, and search) on the performance of Agent-as-a-\nJudge for judging OpenHands.\nMetric\n+ ask\n+ graph\n+ read + locate + search + retrieve + planning + memory\nAgent-as-a-Judge Performance\nAlignment Rate 65.03%\n75.95%\n82.24%\n90.44%\n86.06%\n90.16%\n88.52%\n87.97%\nAnalysis We designed 8 modular components for the Agent-as-a-Judge system. In the Table 5, components\nare added progressively from left to right. If the addition of a component led to a significant performance drop,\nwe removed it from further iterations. Our experiments showed that adding the components ask, graph"
+      }
+    ]
+  },
+  "Q13": {
+    "question": "What are the OpenHands alignment rates when using ask only, then adding graph, read, and locate?",
+    "retrieved_chunks": [
+      {
+        "score": 0.5605982899665832,
+        "faiss_score": 0.46399572491645813,
+        "keyword_score": 0.625,
+        "chunk_id": 54,
+        "page": 10,
+        "text": "Judge’s performance.\nThe components analyzed include ask, graph, read, locate, and retrieve. The component ablation study\nfor Agent-as-a-Judge reveals key insights into the performance gains from adding specific functionalities.\nTable 4 Component Ablation Studies for Agent-as-a-Judge. We\nanalyze the impact of adding various components (ask, graph,\nread, locate, and retrieve) on the performance of Agent-as-a-\nJudge for judging OpenHands.\nMetric\n+ ask + graph + read + locate + retrieve\nAgent-as-a-Judge Performance\nAlignment Rate 65.03% 75.95% 82.24%\n90.44%\n90.16%\nWith only the ask component, the agent\nachieves a 65.03% alignment rate. Adding\nthe graph component increases performance\nto 75.95%, as the agent can better understand\nthe relationships between files.\nThe introduction of read furthe"
+      },
+      {
+        "score": 0.5210998773574829,
+        "faiss_score": 0.3652496933937073,
+        "keyword_score": 0.625,
+        "chunk_id": 175,
+        "page": 39,
+        "text": "K\nAblations of Agent-as-a-Judge\nK.1\nComponent Abalations\nTable 5 Component Ablation Studies for Agent-as-a-Judge. We analyze the impact of sequentially adding various\ncomponents (ask, graph, read, locate, retrieve, planning, memory, and search) on the performance of Agent-as-a-\nJudge for judging OpenHands.\nMetric\n+ ask\n+ graph\n+ read + locate + search + retrieve + planning + memory\nAgent-as-a-Judge Performance\nAlignment Rate 65.03%\n75.95%\n82.24%\n90.44%\n86.06%\n90.16%\n88.52%\n87.97%\nAnalysis We designed 8 modular components for the Agent-as-a-Judge system. In the Table 5, components\nare added progressively from left to right. If the addition of a component led to a significant performance drop,\nwe removed it from further iterations. Our experiments showed that adding the components ask, graph"
+      },
+      {
+        "score": 0.44965345859527583,
+        "faiss_score": 0.2803836464881897,
+        "keyword_score": 0.5625,
+        "chunk_id": 53,
+        "page": 10,
+        "text": "ss-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift\nand alignment rate can be misleading. For example,\nsince MetaGPT rarely meets requirements, LLM-as-a-Judge easily identifies most cases as negative (achieving\n84.15% in the black-box setting). PR Curves offer a clearer performance measure by balancing precision and\nrecall. Agent-as-a-Judge even outperforms any single human evaluator on OpenHands and aligns closest with\nmajority voting. This shows that, in some cases, Agent-as-a-Judge can nearly replace human evaluators.\n4.3\nAblations For Agent-as-a-Judge\nWe conduct ablations to evaluate the impact of adding different components on Agent-as-a-Judge’s performance.\nThe components analyzed include ask, graph, read, locate, and retrieve. The com"
+      },
+      {
+        "score": 0.36791791915893557,
+        "faiss_score": 0.35729479789733887,
+        "keyword_score": 0.375,
+        "chunk_id": 108,
+        "page": 20,
+        "text": "sults/ directory.\nOpen the mentioned link and carefully read the blog mentioned in the user query.\nGo to the GitHub repository mentioned in the blog, and read the code and the README file.\nSet up the environment, then install the package.\nSet up the Modal library by installing it and configuring the API for serverless deployment.\nDevelop Process\nDeveloper \nAgent\nLocate\nFigure 9 The pipelines of developer agents and judge agent. Some materials in this figure are from original blog\n(https://www.factsmachine.ai/p/hidden-in-plain-sight).\n20"
+      },
+      {
+        "score": 0.3488278388977051,
+        "faiss_score": 0.3095695972442627,
+        "keyword_score": 0.375,
+        "chunk_id": 43,
+        "page": 8,
+        "text": "stem could evaluate like a human, it\nwould reduce the need for human involvement and eliminate the trade-off between thoroughness and effort.\n4.1\nProof-of-Concept\nBased on our prior experiences with agent design and by imitating the human evaluation process, we initially\ndesigned eight modular, interacting components that form the foundation of our Proof-of-Concept for the\nAgent-as-a-Judge.\nMemory\nPlanning\nOUTPUTS\nINPUTS\nLocate\nSearch\nRetrieve\nRead\nAsk\nGraph\nFigure 6 Initial diagram of Agent-as-a-Judge.\n(1) The graph module constructs a graph that\ncaptures the entire structure of the project, includ-\ning files, modules, and dependencies. It can also\nbreak down chunks of code into code snippets. (2)\nThe locate module identifies the specific folder\nor file referred to by a requirement. (3) T"
+      }
+    ]
+  },
+  "Q14": {
+    "question": "Which search algorithm or configuration achieves the best alignment rate?",
+    "retrieved_chunks": [
+      {
+        "score": 0.46187753677368165,
+        "faiss_score": 0.4046938419342041,
+        "keyword_score": 0.5,
+        "chunk_id": 179,
+        "page": 39,
+        "text": "evenshtein, 1966) as a less precise option. However, neither\nimproved the performance of the Agent-as-a-Judge.\nTable 6 Comparisons on Search module\nwith different engines.\nSearch Method\nAlignment Rate\nBM2.5\n86.06%\nSentence-BERT\n87.70%\nFuzzy Search\n85.52%\nwithout Search Module\n90.44%\nhese results suggest that the performance issue is not due to BM2.5’s\npoor search accuracy. Instead, the workspaces generated in our\nDevAI tasks are too simple for the search component to have\na significant impact. In simpler workspaces, direct retrieval and\nevaluation are sufficient. Even though Sentence-BERT performed\nbetter than the other methods, its alignment rate (87.70%) still falls\nshort of the configuration without the search component (90.44%).\nAs workspace complexity increases, the search component m"
+      },
+      {
+        "score": 0.3603170299530029,
+        "faiss_score": 0.3007925748825073,
+        "keyword_score": 0.4,
+        "chunk_id": 47,
+        "page": 9,
+        "text": "Alignment Rate ↑\n68.86%\n71.85%\n70.76%\nAgent-as-a-Judge\n(I) Requirements Met (I)\n23.49% (1.35%)\n46.44% (1.64%)\n43.44% (0.54%)\n(II) Requirements Met (D)\n6.01% (0.54%)\n30.60% (1.64%)\n28.14% (0.53%)\n(III) Task Solve Rate\n0.0% (0.00%)\n5.45% (3.64%)\n3.63% (1.82%)\nAlignment Rate ↑\n92.07%\n86.61%\n90.16%\n/\nHuman-as-a-Judge\nAlignment Rate (38bb)\n92.63%\n90.98%\n89.89%\nAlignment Rate (cn9o)\n83.33%\n76.23%\n78.15%\nAlignment Rate (231a)\n92.07%\n87.43%\n89.07%\nAverage of individuals\n89.34%\n84.88%\n85.70%\nBest of individuals\n92.63%\n90.98%\n89.89%\nAlignment Rate (Majority Vote)\n95.08%\n93.98%\n94.26%\nextracts information from long texts, identifying relevant segments in trajectories. With context from the\nabove, (6) the ask module determines whether a given requirement is satisfied. (7) The memory module stores\nhist"
+      },
+      {
+        "score": 0.3373417222499847,
+        "faiss_score": 0.24335430562496185,
+        "keyword_score": 0.4,
+        "chunk_id": 54,
+        "page": 10,
+        "text": "Judge’s performance.\nThe components analyzed include ask, graph, read, locate, and retrieve. The component ablation study\nfor Agent-as-a-Judge reveals key insights into the performance gains from adding specific functionalities.\nTable 4 Component Ablation Studies for Agent-as-a-Judge. We\nanalyze the impact of adding various components (ask, graph,\nread, locate, and retrieve) on the performance of Agent-as-a-\nJudge for judging OpenHands.\nMetric\n+ ask + graph + read + locate + retrieve\nAgent-as-a-Judge Performance\nAlignment Rate 65.03% 75.95% 82.24%\n90.44%\n90.16%\nWith only the ask component, the agent\nachieves a 65.03% alignment rate. Adding\nthe graph component increases performance\nto 75.95%, as the agent can better understand\nthe relationships between files.\nThe introduction of read furthe"
+      },
+      {
+        "score": 0.337173148393631,
+        "faiss_score": 0.24293287098407745,
+        "keyword_score": 0.4,
+        "chunk_id": 37,
+        "page": 7,
+        "text": "Analysis\nTo analyze the presence of inductive bias and the reliability of the Human-as-a-Judge\nparadigm here, we calculate the disagreement rate between individual evaluators (shown in Figure 4). The\nresults indicate that the disagreement rates between pairs of evaluators range from around 10% to 30%.\nDue to the complexity of a complete AI development task, which typically involves multiple steps with\nvarying outcomes at each step, humans can easily make errors when critical information is missed, such as\nenvironment feedback indicating small but severe coding errors or bugs. Additionally, some disagreements are\nnot necessarily incorrect but arise from differing perspectives on how ambiguity should be resolved.\nError Analysis\nAs previously noted, the evaluators engaged in a round of debati"
+      },
+      {
+        "score": 0.33038922786712643,
+        "faiss_score": 0.22597306966781616,
+        "keyword_score": 0.4,
+        "chunk_id": 35,
+        "page": 7,
+        "text": "and their self-reported post-hoc descriptions of how they resolved ambiguities are reported in\nFigure 12 in Appendix H.\nAfter the initial round of human evaluations (which totaled an estimated total of 58 human hours), we asked\nour evaluators to discuss and reach a consensus on their assessments (which took an estimated total of 28.5\nadditional human hours). This consensus, achieved after long sessions of debate, was used as the final human\nevaluation result for each method.\nPerformance Analysis\nThe results of this experiment are shown in Table 2. We found that the two best-\nperforming methods (GPT-Pilot and OpenHands) could satisfy about 29% of the requirements (or around\n44% if prerequisites are ignored) but only on one task could they meet all the requirements. This highlights\nthat DevA"
+      }
+    ]
+  },
+  "Q15": {
+    "question": "Which two architectures are most frequently used in DevAI?",
+    "retrieved_chunks": [
+      {
+        "score": 0.5958671013514201,
+        "faiss_score": 0.32300108671188354,
+        "keyword_score": 0.7777777777777778,
+        "chunk_id": 21,
+        "page": 4,
+        "text": "s. (4) SVM classifiers (Cortes, 1995) and\nLSTM models (Hochreiter, 1997) are two of the most widely used architectures—a fact reflected by DevAI.\n2.2\nThe DevAI Dataset\nMotivated by the ideas outlined above, we propose the DevAI dataset. DevAI consists of a curated set of 55\ntasks, each defined by (1) a plain text user query that describes an AI development task; (2) a set of plain\ntext requirements (for a total of 365 requirements), each with a set of dependencies connecting them to other\nrequirements; and (3) a set of preferences (for a total of 125 preferences) which represent softer requirements.\nDevAI is structured so that an agentic system starts by receiving a user query to begin development. The\nsystem is then evaluated on how well it meets the requirements, with preferences serving"
+      },
+      {
+        "score": 0.448354967435201,
+        "faiss_score": 0.2875540852546692,
+        "keyword_score": 0.5555555555555556,
+        "chunk_id": 20,
+        "page": 4,
+        "text": "!\"#$%&'($)*&+(,$&-$.,/'$0+/'1/,\n(2) Number of Words in User Queirs\n!2#$3/451&4,$&-$3&(/*,\n!6#$7+89/'$&-$%&'(,$14$.,/'$0+/'1/,\n!:#$7+89/'$&-$;<=,$&-$.,/'$0+/'1/,\nFigure 2 Distribution of DevAI Tasks (1) DevAI focuses on AI development tasks and so terms such as “dataset,”\n“model,” and “results” are particularly common in the queries. (2) The first 53 tasks in DevAI all have a one-paragraph\nquery but of varying lengths (note that task 54 and 55 are excluded here as they are outliers, representing the longest\nand most complex tasks in the dataset). (3) Each task has one or more tags. The prevalence of supervised learning\nhere reflects the fact that it dominates many machine learning applications. (4) SVM classifiers (Cortes, 1995) and\nLSTM models (Hochreiter, 1997) are two of the most widely"
+      },
+      {
+        "score": 0.4408091147740682,
+        "faiss_score": 0.26868945360183716,
+        "keyword_score": 0.5555555555555556,
+        "chunk_id": 9,
+        "page": 2,
+        "text": "Writing codes\nExecute and get images\nInteract\nIt starts to run\nIt can’t browse the web\nStuck in an strange loop\nCodes are unreliable\nAgent A\nAgent B\nEnvironment\nWorkspace\nWorkspace\nsrc\nvisualize.py\nAct\nAct\nWorkspace\nWorkspace\nsrc\nvisualize.py\nresults\nhidden.jpg\nAfter step-by-step checks, it‘s clear Agent B is better and\nsatisfy two requirements of the query. But comparing these\nagents or evaluate them took too much time. As a developer,\nthis would be a bottleneck due to the heavy manual effort.\nFigure 1 We introduce the Agent-as-a-Judge framework wherein agentic systems are used to evaluate agentic systems.\nWe compare this to LLM-as-a-Judge, which uses LLMs to evaluate LLMs and for which Agent-as-a-Judge is a natural\nevolution, and Human-as-a-Judge, where skilled human labourers manually e"
+      },
+      {
+        "score": 0.42067206104596455,
+        "faiss_score": 0.21834681928157806,
+        "keyword_score": 0.5555555555555556,
+        "chunk_id": 35,
+        "page": 7,
+        "text": "and their self-reported post-hoc descriptions of how they resolved ambiguities are reported in\nFigure 12 in Appendix H.\nAfter the initial round of human evaluations (which totaled an estimated total of 58 human hours), we asked\nour evaluators to discuss and reach a consensus on their assessments (which took an estimated total of 28.5\nadditional human hours). This consensus, achieved after long sessions of debate, was used as the final human\nevaluation result for each method.\nPerformance Analysis\nThe results of this experiment are shown in Table 2. We found that the two best-\nperforming methods (GPT-Pilot and OpenHands) could satisfy about 29% of the requirements (or around\n44% if prerequisites are ignored) but only on one task could they meet all the requirements. This highlights\nthat DevA"
+      },
+      {
+        "score": 0.400000003973643,
+        "faiss_score": 0.3333333432674408,
+        "keyword_score": 0.4444444444444444,
+        "chunk_id": 22,
+        "page": 4,
+        "text": "opment. The\nsystem is then evaluated on how well it meets the requirements, with preferences serving as optional, softer\ncriteria. An example of one of the DevAI tasks can be seen in Figure 3.\nThe tasks in DevAI are relatively small-scale but cover commonly used key development techniques. As shown\nin Figure 2, our tasks are tagged and cover a variety of key areas in AI: supervised learning, reinforcement\nlearning, computer vision, natural language processing, generative models, and others. Each of the tasks\nis a real-world problem that could be given to a research engineer, while simultaneously being relatively\ninexpensive computationally to run so as to reduce the cost of evaluating a method on this benchmark. Details\nof the sample collection and human labeling process for DevAI are prov"
+      }
+    ]
+  },
+  "Q16": {
+    "question": "What is Task 51 Requirement R1?",
+    "retrieved_chunks": [
+      {
+        "score": 0.38558475375175477,
+        "faiss_score": 0.2139618843793869,
+        "keyword_score": 0.5,
+        "chunk_id": 143,
+        "page": 29,
+        "text": "sults/figures/forecast results.png.\nDependencies →{R1, R2}\n■R4\nCriteria: A comparison plot of predicted vs. actual values is saved as results/figures/comparison -\nplot.png.\nDependencies →{R1, R2, R3}\n■R5\nCriteria: An HTML report containing forecast results and comparison plots is generated and saved as\nresults/report.html.\nDependencies →{R1, R2, R3, R4}\n■R6\nCriteria: The HTML report should include interactive elements that allow users to explore different forecast\nhorizons.\nDependencies →{R5}\nPreferences (Optional)\n■P0\nCriteria: The model should be tuned to capture seasonal trends in the sales data for more accurate forecast-\ning.\nFigure 11 An Example Task in DevAI: Task 19.\n29"
+      },
+      {
+        "score": 0.3806599259376526,
+        "faiss_score": 0.20164981484413147,
+        "keyword_score": 0.5,
+        "chunk_id": 152,
+        "page": 32,
+        "text": "I\nSuggest Constraints\nBelow is a sample of constraints in JSON format that describes task-specific guidelines:\n{\n\"generic\": \"This is a task that\nrequires\nyou to write, execute, and save\nsource\ncode. You have a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime. The\nquality of your\nsolution\nwill be judged\nbased on what you left in the\nworking\nfolder by the time 30 minutes\nexpire. Additionally, the\nhardware\nyou\nare\nrunning on is unknown, and the\npresence of a GPU is not\nguaranteed.\",\n\" is_training_needed \": \"Keep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining.\",\n\" is_kaggle_api_needed \": \"You can use the Kaggle API\ncredentials\nstored in `\nkaggle.json ` in your\ncurrent\nworking\ndirectory.\"\n}\nTo addres"
+      },
+      {
+        "score": 0.3633777260780334,
+        "faiss_score": 0.15844431519508362,
+        "keyword_score": 0.5,
+        "chunk_id": 127,
+        "page": 24,
+        "text": "k each task with some tags describing the AI sub-fields\nrelated to the task, including computer vision, supervised learning, reinforcement learning, natural language\nprocessing, etc., as well as two “is training needed” and “is web navigation needed” tags as auxiliary\ninformation. We also categorize each requirement into one of the following: (1) dataset or environment,\n(2) data preprocessing and postprocessing, (3) machine learning method, (4) save trained model,\n(4) performance metrics, (5) human computer interaction, (6) visualization, and (7) other, reflecting\nthe nature of the requirement.\nE.7\nA Json Format of Our Sample\nHere, we provide a sample of the DevAI with its json format. We also provide more samples in Appendix G.\n{\n\"name\": \"25 _Speech_Emotion_Recognition_CNN_LSTM_RAVDESS_DL"
+      },
+      {
+        "score": 0.3584094405174255,
+        "faiss_score": 0.14602360129356384,
+        "keyword_score": 0.5,
+        "chunk_id": 160,
+        "page": 35,
+        "text": "ding\nmetrics\nsuch as mAP and\ninference\ntime, and save\nthe\nevaluation\nresults to `results/metrics/ model_performance .txt `. The\nsystem\nshould\nproperly\nmanage the launch and\ntermination of the\nStreamlit\napplication to prevent\nunnecessary\nresource\nusage .\\n\\nThis is\na task that\nrequires\nyou to write, execute, and save\nsource\ncode. You\nhave a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime.\nThe\nquality of your\nsolution\nwill be judged\nbased on what you left in\nthe\nworking\nfolder by the time 30 minutes\nexpire. Additionally , the\nhardware\nyou are\nrunning on is unknown, and the\npresence of a GPU is\nnot\nguaranteed .\\n\\nKeep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining .\\n\",\n\"agent\": {\n\"thought\": \"Let"
+      },
+      {
+        "score": 0.35451730489730837,
+        "faiss_score": 0.13629326224327087,
+        "keyword_score": 0.5,
+        "chunk_id": 146,
+        "page": 31,
+        "text": "Self-reported Post-hoc Evaluation Criteria after round one\nEvaluator 231a\nEXECUTED SUCCESSFULLY: Yes [ ] / No [ ]\n1. Must be checked based on the overall completeness of the task, based on looking at the code, the\nartifacts, and the trajectory.\n2. The training has finished, the model snapshot and the metrics breakdown have been saved, and at\nleast one artifact of required analytics has been produced - mark as successful. If some analytic artifacts\nare missing but not all, mark as successful.\n3. No need to run the code.\n4. If training was finished but on fake data, mark as successful.\nRequirements:\nMarking a requirement as satisfied must be made for this specific requirement disregarding the dependency\nlist. If a file (code, image, snapshot) is there but is empty or without any meaningful c"
+      }
+    ]
+  },
+  "Q17": {
+    "question": "Which human evaluator made the most errors and what was the error percentage on GPT-Pilot?",
+    "retrieved_chunks": [
+      {
+        "score": 0.4715873432159424,
+        "faiss_score": 0.37896835803985596,
+        "keyword_score": 0.5333333333333333,
+        "chunk_id": 35,
+        "page": 7,
+        "text": "and their self-reported post-hoc descriptions of how they resolved ambiguities are reported in\nFigure 12 in Appendix H.\nAfter the initial round of human evaluations (which totaled an estimated total of 58 human hours), we asked\nour evaluators to discuss and reach a consensus on their assessments (which took an estimated total of 28.5\nadditional human hours). This consensus, achieved after long sessions of debate, was used as the final human\nevaluation result for each method.\nPerformance Analysis\nThe results of this experiment are shown in Table 2. We found that the two best-\nperforming methods (GPT-Pilot and OpenHands) could satisfy about 29% of the requirements (or around\n44% if prerequisites are ignored) but only on one task could they meet all the requirements. This highlights\nthat DevA"
+      },
+      {
+        "score": 0.45503798007965085,
+        "faiss_score": 0.4375949501991272,
+        "keyword_score": 0.4666666666666667,
+        "chunk_id": 182,
+        "page": 40,
+        "text": "p Truncate (middle)\n86.61%\nStep Truncate (tail)\n83.88%\nWe conducted an ablation study on GPT-Pilot to optimize\nthe retrieval of useful information at each step. Our experi-\nments revealed that in large trajectories, truncating the final\nsections of the file often results in losing critical information,\nas the latter part of the trajectory typically contains dense\ninformation about the final development state. Truncating\nthe beginning of the trajectory proved to be the most effective\nin improving the retrieval efficiency.\nFor individual steps, truncating the middle section worked\nbest. This is because error messages usually appear early in\nthe output, while the corresponding file paths and specific\nerror locations are found towards the end. By focusing on\nthese retrieval strategies, we can"
+      },
+      {
+        "score": 0.45384541034698483,
+        "faiss_score": 0.43461352586746216,
+        "keyword_score": 0.4666666666666667,
+        "chunk_id": 40,
+        "page": 8,
+        "text": "While the consensus evaluation may not represent the absolute ground truth (we acknowledge that some\nquantity of error likely would still exist even after this procedure), we expect the consensus evaluation to more\naccurately approximate any extant ground truth (Clemen, 1989). If this holds, the majority vote should align\nmore closely with the consensus than with any individual evaluation. As shown in Figure 5, this is the case.\nAs seen in the results, although significant errors occur among all evaluators, the majority vote effectively\ncorrects most of these errors. Notably, cn9o made the most errors (for example, 23.77% in evaluating\nGPT-Pilot). After applying the majority vote from all three evaluators, the overall error rate dropped to\n6.01%, demonstrating the inherent benefits of majo"
+      },
+      {
+        "score": 0.44773988008499144,
+        "faiss_score": 0.41934970021247864,
+        "keyword_score": 0.4666666666666667,
+        "chunk_id": 150,
+        "page": 31,
+        "text": "prerequisites while evaluating and did not execute anything, instead just eyeballing the code for\ncorrectness. I was lenient in what I considered to be sufficient in terms of the more vague requirements\n(e.g., if the preprocessing had to include scaling and rotation, just those two would be sufficient to\nconsider it done).\nFigure 12 Each evaluator was given a full description of each task and the associated requirements and preferences in\nmarkdown format. They were then asked, for each workspace and trajectory generated by each of the agents on each\nof the task, whether (1) the agent successfully finished its execution cycle and (2) which of the requirements were\nsatisfied. After the evaluation was complete, the evaluators were asked to self-report the nuances of their evaluation.\n31"
+      },
+      {
+        "score": 0.4248571920394897,
+        "faiss_score": 0.36214298009872437,
+        "keyword_score": 0.4666666666666667,
+        "chunk_id": 37,
+        "page": 7,
+        "text": "Analysis\nTo analyze the presence of inductive bias and the reliability of the Human-as-a-Judge\nparadigm here, we calculate the disagreement rate between individual evaluators (shown in Figure 4). The\nresults indicate that the disagreement rates between pairs of evaluators range from around 10% to 30%.\nDue to the complexity of a complete AI development task, which typically involves multiple steps with\nvarying outcomes at each step, humans can easily make errors when critical information is missed, such as\nenvironment feedback indicating small but severe coding errors or bugs. Additionally, some disagreements are\nnot necessarily incorrect but arise from differing perspectives on how ambiguity should be resolved.\nError Analysis\nAs previously noted, the evaluators engaged in a round of debati"
+      }
+    ]
+  },
+  "Q18": {
+    "question": "What is a drawback of Human-as-a-Judge?",
+    "retrieved_chunks": [
+      {
+        "score": 0.7126282691955566,
+        "faiss_score": 0.6565706729888916,
+        "keyword_score": 0.75,
+        "chunk_id": 52,
+        "page": 10,
+        "text": "ent Rate reflects how\nclosely the AI Judges’ evaluations align with human\nconsensus across all 365 requirements. It is defined\nas the percentage of requirement evaluations that\nare the same as the Human-as-a-Judge consensus\nevaluation. Compared to LLM-as-a-Judge, Agent-\nas-a-Judge consistently achieves a higher Alignment\nRate, closely matching human judgments.\nFor\nexample, when evaluating OpenHands, Agent-as-a-\nJudge reaches 92.07% and 90.44%, surpassing LLM-\nas-a-Judge’s 70.76% and 60.38% in both gray-box\nand black-box settings. This shows that Agent-as-a-\nJudge produces more accurate and human-aligned\nevaluations, especially in complex scenarios.\nPR Curves\nJudging developer agents is a class-\nimbalanced task, where meeting requirements is\nmuch rarer than failing. Metrics like judge shift"
+      },
+      {
+        "score": 0.7045473814010621,
+        "faiss_score": 0.44886845350265503,
+        "keyword_score": 0.875,
+        "chunk_id": 4,
+        "page": 1,
+        "text": "itional way is like evaluating a student using multiple-choice testing—a comparatively unreliable\nestimator (Park, 2010). For example, while SWE-Bench (Yang et al., 2024a) is widespread, its evaluation\nmethod, which relies solely on the final resolve rate for long-term automated repair tasks, does not effectively\npinpoint what is happening within agentic systems that affects the resolve rate. On the other hand, performing\na better evaluation with a human is prohibitively expensive. We instead propose that agentic systems should\nbe used to evaluate agentic systems. Inspired by LLM-as-a-Judge (Zheng et al., 2024; Fu et al., 2023; Chen\net al., 2024b), which uses LLMs to evaluate LLMs, we call this framework Agent-as-a-Judge, of which it is\n1\narXiv:2410.10934v2  [cs.AI]  16 Oct 2024"
+      },
+      {
+        "score": 0.702009654045105,
+        "faiss_score": 0.6300241351127625,
+        "keyword_score": 0.75,
+        "chunk_id": 50,
+        "page": 10,
+        "text": "proved detrimental, as any errors in previous judgments could lead to a chain of errors, negatively affecting\ncurrent decisions. Besides, the current workspaces generated by developer agents, having only hundreds of\nlines of code, cannot fully benefit from the search module. The details of these findings are explained in\nAppendix K. Note that a perfect Agent-as-a-Judge is not the focus of this proof of concept, and thus, we leave\nthe utilization of advanced agentic optimization methods for Agent-as-a-Judge, such as automated prompt\noptimization and workflow design (Zhuge et al., 2024; Hu et al., 2024), for future work.\n4.2\nJudging Agent-as-a-Judge and LLM-as-a-Judge\nJudge Shift\nJudge Shift measures deviation from the Human-as-a-Judge consensus results, with lower values\nindicating a closer"
+      },
+      {
+        "score": 0.679216456413269,
+        "faiss_score": 0.5730411410331726,
+        "keyword_score": 0.75,
+        "chunk_id": 1,
+        "page": 1,
+        "text": "orporating agentic features that enable intermediate feedback for the entire task-solving\nprocess. We apply the Agent-as-a-Judge to the task of code generation. To overcome issues with\nexisting benchmarks and provide a proof-of-concept testbed for Agent-as-a-Judge, we present DevAI,\na new benchmark of 55 realistic automated AI development tasks. It includes rich manual annotations,\nlike a total of 365 hierarchical user requirements. We benchmark three of the popular agentic systems\nusing Agent-as-a-Judge and find it dramatically outperforms LLM-as-a-Judge and is as reliable as\nour human evaluation baseline. Altogether, we believe that Agent-as-a-Judge marks a concrete step\nforward for modern agentic systems—by providing rich and reliable reward signals necessary for\ndynamic and scalable se"
+      },
+      {
+        "score": 0.6704771041870117,
+        "faiss_score": 0.5511927604675293,
+        "keyword_score": 0.75,
+        "chunk_id": 56,
+        "page": 11,
+        "text": "to the requirements. However, adding retrieve does not provide a significant benefit in this case. In contrast,\nas shown in Table 3, the judgment of MetaGPT and GPT-Pilot indicates that retrieve is useful, as the\ntrajectory provides additional valuable information.\n4.4\nCost Analysis\nThe Human-as-a-Judge took the three evaluators a self-reported total of 86.5 hours. With a 15 USD minimum\nwage (assuming this would buy a subject expert in AI), a full evaluation under DevAI would cost around\n1297.50 USD. In comparison, Agent-as-a-Judge cost only 30.58 USD in API calls and took only 118.43\nminutes—2.29% of the cost and 2.36% of the time of Human-as-a-Judge. LLM-as-a-Judge was faster at 10.99\nminutes, but due to the absence of intelligent context selection by the Agent-as-a-Judge’s modules, it s"
+      }
+    ]
+  },
+  "Q19": {
+    "question": "What is the GitHub repository URL for this RAG chatbot?",
+    "retrieved_chunks": [
+      {
+        "score": 0.42805140018463134,
+        "faiss_score": 0.32012850046157837,
+        "keyword_score": 0.5,
+        "chunk_id": 108,
+        "page": 20,
+        "text": "sults/ directory.\nOpen the mentioned link and carefully read the blog mentioned in the user query.\nGo to the GitHub repository mentioned in the blog, and read the code and the README file.\nSet up the environment, then install the package.\nSet up the Modal library by installing it and configuring the API for serverless deployment.\nDevelop Process\nDeveloper \nAgent\nLocate\nFigure 9 The pipelines of developer agents and judge agent. Some materials in this figure are from original blog\n(https://www.factsmachine.ai/p/hidden-in-plain-sight).\n20"
+      },
+      {
+        "score": 0.41107362508773804,
+        "faiss_score": 0.2776840627193451,
+        "keyword_score": 0.5,
+        "chunk_id": 152,
+        "page": 32,
+        "text": "I\nSuggest Constraints\nBelow is a sample of constraints in JSON format that describes task-specific guidelines:\n{\n\"generic\": \"This is a task that\nrequires\nyou to write, execute, and save\nsource\ncode. You have a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime. The\nquality of your\nsolution\nwill be judged\nbased on what you left in the\nworking\nfolder by the time 30 minutes\nexpire. Additionally, the\nhardware\nyou\nare\nrunning on is unknown, and the\npresence of a GPU is not\nguaranteed.\",\n\" is_training_needed \": \"Keep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining.\",\n\" is_kaggle_api_needed \": \"You can use the Kaggle API\ncredentials\nstored in `\nkaggle.json ` in your\ncurrent\nworking\ndirectory.\"\n}\nTo addres"
+      },
+      {
+        "score": 0.40987770557403563,
+        "faiss_score": 0.2746942639350891,
+        "keyword_score": 0.5,
+        "chunk_id": 160,
+        "page": 35,
+        "text": "ding\nmetrics\nsuch as mAP and\ninference\ntime, and save\nthe\nevaluation\nresults to `results/metrics/ model_performance .txt `. The\nsystem\nshould\nproperly\nmanage the launch and\ntermination of the\nStreamlit\napplication to prevent\nunnecessary\nresource\nusage .\\n\\nThis is\na task that\nrequires\nyou to write, execute, and save\nsource\ncode. You\nhave a hard time\nlimit of 30 minutes to produce\nyour\nprogrammatic\nsolution to the given\ntask. This time\nlimit\nincludes\nexecution\ntime.\nThe\nquality of your\nsolution\nwill be judged\nbased on what you left in\nthe\nworking\nfolder by the time 30 minutes\nexpire. Additionally , the\nhardware\nyou are\nrunning on is unknown, and the\npresence of a GPU is\nnot\nguaranteed .\\n\\nKeep the time\nlimit in mind when\nsetting\nhyperparameters\nfor\ntraining .\\n\",\n\"agent\": {\n\"thought\": \"Let"
+      },
+      {
+        "score": 0.37187608718872067,
+        "faiss_score": 0.32969021797180176,
+        "keyword_score": 0.4,
+        "chunk_id": 191,
+        "page": 43,
+        "text": "L.4\nPrompt for Ask Module (for requirement check)\ndef\nget_ask_prompt (criteria: str, evidence: str) -> str:\nreturn f\"\"\"\nProvided\nbelow is relevant\ninformation\nabout the\nproject:\n{evidence}\nKindly\nperform an evaluation of the\nfollowing\ncriteria:\n{criteria}\nAs per the\nguidelines, respond\nwith\neither <SATISFIED > or <UNSATISFIED >,\nfollowed by a concise\njustification\nthat\nreferences\nspecific\nelements\nfrom\nthe\nproject\ninformation, such as code\nsnippets, data\nsamples, or output\nresults.\n\"\"\"\nL.5\nPrompt for Locate Module\ndef\nget_locate_prompt (criteria: str, evidence: str) -> str:\nreturn f\"\"\"\nProvided\nbelow is the\nstructure of the\nworkspace:\n{ workspace_info }\nThis is the\ncriteria\nrelated to the task:\n{criteria}\nFollow the format in the\nexample\nbelow and return\nonly the file\npaths\nthat\nmatch the"
+      },
+      {
+        "score": 0.36974891662597653,
+        "faiss_score": 0.3243722915649414,
+        "keyword_score": 0.4,
+        "chunk_id": 49,
+        "page": 9,
+        "text": "he dynamic evidence collected\nby the Agent-as-a-Judge is shown in Appendix M. We hypothesize this is because Agent-as-a-Judge needs\nhigh-quality factual information and is sensitive to noise. For example, while our design of the planning\nmodule introduces promising decision-making for future actions, the procedure is unstable. Initially, we hoped\nthat historical information from the memory module would help to assess current requirements. However, it\n9"
+      }
+    ]
+  }
+}

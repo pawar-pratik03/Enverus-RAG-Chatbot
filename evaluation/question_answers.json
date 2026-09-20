@@ -1,0 +1,17 @@
+{
+  "Q5": "Agent-as-a-Judge saves 97.72% of evaluation time and 97.64% of evaluation cost compared with three human experts.",
+  "Q6": "Human-as-a-Judge: 86.5 hours and $1297.50. Agent-as-a-Judge: 118.43 minutes and $30.58. LLM-as-a-Judge: 10.99 minutes and $29.63.",
+  "Q7": "The three agentic systems evaluated are MetaGPT, GPT-Pilot, and OpenHands.",
+  "Q8": "OpenHands has an average cost of $6.38 and an average time of 362.41 seconds.",
+  "Q9": "MetaGPT has an average cost of $1.19, while OpenHands has the highest average cost at $6.38.",
+  "Q10": "For GPT-Pilot, Requirements Met (Independent) under Human-as-a-Judge is 44.80%.",
+  "Q11": "MetaGPT has a Task Solve Rate of 0.00%.",
+  "Q12": "For black-box OpenHands, Agent-as-a-Judge has an alignment rate of 90.44%, compared with 60.38% for LLM-as-a-Judge.",
+  "Q13": "For OpenHands, the alignment rates are: Ask only 65.03%, Ask + Graph 75.95%, Ask + Graph + Read 82.24%, and Ask + Graph + Read + Locate 90.44%.",
+  "Q14": "The highest alignment rate in the search-module comparison is obtained without the Search Module at 90.44%.",
+  "Q15": "SVM and LSTM are the two frequently used architectures reflected in DevAI.",
+  "Q16": "Task 51 R1: Ensure the generated images are of 1080p resolution and saved in results/.",
+  "Q17": "Human evaluator cn9o made the most errors, with 23.77% on GPT-Pilot.",
+  "Q18": "A drawback of Human-as-a-Judge is that manual evaluation requires substantial time and effort, creating an evaluation bottleneck.",
+  "Q19": "The answer is the URL of the user's own GitHub repository containing the RAG chatbot."
+}
